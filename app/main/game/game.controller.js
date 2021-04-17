@@ -14,13 +14,6 @@ class GameController {
 
     $onInit() {
         this.payload = this.$stateParams.payload;
-        // this.goToMain();
-        // this.payload = {
-        //     firstPlayer: 'abcqwqwq',
-        //     secondPlayer: 'abcd',
-        //     noOfGames: 3,
-        //     whoStarts: 'Looser first'
-        // };
         if (!this.payload) {
             this.goToMain();
         } else {
@@ -130,7 +123,7 @@ class GameController {
         const winner = this.scoreCard[this.activePlayer];
         this.scoreCard[this.activePlayer].score += 1;
         this.winner = winner.name;
-        if (this.currentGame === this.payload.noOfGames) {
+        if (this.currentGame === Number(this.payload.noOfGames)) {
             this.isNextGame = false;
             this.getWinnerDetails();
         }
