@@ -1,7 +1,7 @@
 # Problem statement
  - Programming Assignment Objective
-    ● Please build “Connect Four” game using ReactJS, Html/Css as per design: https://xd.adobe.com/view/78f3c732-fbf8-4df5-9fcc-d1b7140f12ad-2da0/
-    ● What is Four in Row Game? Try this Android App: https://play.google.com/store/apps/details?id=com.quarzo.fourinarow
+    - Please build “Connect Four” game using ReactJS, Html/Css as per design: https://xd.adobe.com/view/78f3c732-fbf8-4df5-9fcc-d1b7140f12ad-2da0/
+    - What is Four in Row Game? Try this Android App: https://play.google.com/store/apps/details?id=com.quarzo.fourinarow
     ## Generic Guideline
         ● UI should look exactly the same. Though design does not have a responsive layout, please make it responsive with the best of your understanding. I.e. If a page has two main columns then break it one above the other.
         ● ReactJS, Html/Css should be used. If you are not hands on with ReactJs then you can use AngularJS or VueJS. But no Jquery.
