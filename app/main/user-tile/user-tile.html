@@ -1,0 +1,15 @@
+<div ng-class="{'play-game': $ctrl.isGamePanel}" class="tile" style="--background: {{$ctrl.colorCode}}; --border: {{$ctrl.borderColorCode}}">
+    <div class="tile--icon" ng-class="{'active': $ctrl.isActive}">
+        <img ng-src={{$ctrl.getProfileImg()}} />
+    </div>
+    <div class="tile--input" ng-if="!$ctrl.showOnlyIcon">
+        <md-input-container>
+            <label>{{$ctrl.title}}</label>
+            <input ng-click="$ctrl.openModal()" ng-model="$ctrl.payload[$ctrl.modelBind]" placeholder={{$ctrl.placeholderText}}>
+        </md-input-container>
+        <md-input-container ng-if="$ctrl.isGamePanel" class="score-card">
+            <label>Score</label>
+            <input value="{{$ctrl.score}}">
+        </md-input-container>
+    </div>
+</div>

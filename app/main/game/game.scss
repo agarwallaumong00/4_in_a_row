@@ -1,0 +1,125 @@
+game-component {
+    .default-container {
+        width: 1200px;
+        height: 700px;
+        display: flex;
+
+        .game-container {
+            width: 70%;
+            height: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &.victory {
+                pointer-events: none;
+            }
+
+            table {
+                width: 87%;
+                height: 90%;
+                background-color: #84A4FC;
+                box-shadow: 0px 3px 6px #00000040;
+                border: 2px solid white;
+                border-radius: 50px;
+
+                td {
+                    display: inline-block;
+                    border: 2px solid white;
+                    border-radius: 50%;
+                    background: rgb(250, 247, 246);
+                    text-align: center;
+                    box-sizing: border-box;
+                    width: 76px;
+                    height: 76px;
+                    cursor: pointer;
+                    
+                    margin: 10px 9px;
+
+                    .cell-cont {
+                        height: 100%;
+                        border-radius: 50%;
+                        box-shadow: 0px -3px 2px -2px #00000040;
+                    }
+
+                    user-tile {
+                        .tile {
+                            margin: 0;
+                            padding: 0;
+                            border: 0;
+                            display: flex;
+                            justify-content: center;
+                            margin-top: -1px;
+                            background: none;
+
+                            &--icon {
+                                height: 52px;
+                                width: 52px;
+                                margin: 0;
+                                padding: 0;
+                                background-color: var(--border);
+                            }
+                        }
+                    }
+                }
+                td:focus {
+                    outline: none;
+                }
+            }
+        }
+
+        .game-panel {
+            width: 30%;
+            background: #F5F5F5;
+            padding: 20px;
+            border: 1px solid #F7F7F7;
+            border-radius: 0 30px 30px 0;
+
+            &--info {
+                text-align: center;
+                margin-bottom: 30px;
+
+                &--title {
+                    font-weight: 600;
+                    font-size: 21px;
+                    margin-bottom: 10px;
+                }
+
+                &--current-game {
+                    color: #505351;
+                }
+            }
+
+            .action-buttons {
+                padding-top: 40px;
+                border-top: 0.5px solid #707070;
+                margin-top: 30px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .undo {
+                    background-color: #4B7BFF !important;
+                }
+
+                .end-tour {
+                    background-color: white !important;
+                    color: #CC0000;
+                }
+            }
+
+            .congrats {
+                font-size: 27px;
+                font-weight: 500;
+                color: #FF6600;
+                margin-bottom: 5px;
+            }
+
+            .winner {
+                color: #505351;
+            }
+        }
+    }
+}

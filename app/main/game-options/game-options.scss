@@ -1,0 +1,19 @@
+game-options {
+    .default-container {
+        width: 500px;
+        padding: 30px;
+        height: auto;
+    }
+
+    .start-game-btn {
+        text-align: center;
+
+        .custom-btn {
+            background-color: #4B7BFF !important;
+            height: 60px;
+            width: 98%;
+            margin: 0;
+            margin-top: 30px;
+        }
+    }
+}

@@ -1,10 +1,7 @@
 'use strict';
 
-function headerController() {
-    const vm = this;
+class HeaderController {
 
 }
 
-headerController.$inject = [];
-
-module.exports = headerController;
+module.exports = HeaderController;

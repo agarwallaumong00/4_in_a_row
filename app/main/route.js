@@ -1,17 +1,43 @@
 'use strict';
 
-function catalogRoute($stateProvider) {
-    $stateProvider.state('catalog', {
+function mainRoute($stateProvider) {
+    $stateProvider.state('main', {
         parent: 'home',
-        url: '/catalog',
+        url: '/main',
         views: {
             'main@': {
-                component: 'catalogContainer'
+                component: 'mainContainer'
             }
+        }
+    });
+
+    $stateProvider.state('options', {
+        parent: 'main',
+        url: '/options',
+        views: {
+            'main@': {
+                component: 'gameOptions'
+            }
+        },
+        params: {
+            payload: null
+        }
+    });
+
+    $stateProvider.state('game', {
+        parent: 'main',
+        url: '/game',
+        views: {
+            'main@': {
+                component: 'gameComponent'
+            }
+        },
+        params: {
+            payload: null
         }
     });
 }
 
-catalogRoute.$inject = ['$stateProvider'];
+mainRoute.$inject = ['$stateProvider'];
 
-module.exports = catalogRoute;
+module.exports = mainRoute;

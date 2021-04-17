@@ -2,7 +2,7 @@
 
 function routeConfig($urlRouterProvider, $stateProvider, $locationProvider) {
     $stateProvider.state('home', {
-        url: '/home'
+        url: ''
     });
 
     $locationProvider.html5Mode(true);
@@ -13,7 +13,7 @@ routeConfig.$inject = ['$urlRouterProvider', '$stateProvider', '$locationProvide
 
 function wrongRouteHandler($injector) {
     var state = $injector.get('$state');
-    state.go('home');
+    state.go('main');
 }
 
 wrongRouteHandler.$inject = ['($injector'];

@@ -1,0 +1,56 @@
+<app-header go-back="$ctrl.goToMain()"></app-header>
+
+<div class="main-container">
+    <div class="default-container">
+        <div>
+            <user-tile
+                title="'Player 01'"
+                profile="'avatar01.png'"
+                color-code="'#37AC5D'"
+                border-color-code="'#DCF6E4'"
+                placeholder-text="'Enter player 01 name'"
+                payload="$ctrl.payload"
+                model-bind="'firstPlayer'"
+            ></user-tile>
+            <user-tile
+                title="'Player 02'"
+                profile="'avatar02.png'"
+                border-color-code="'#F6EFD5'"
+                color-code="'#F8D146'"
+                placeholder-text="'Enter player 02 name'"
+                payload="$ctrl.payload"
+                model-bind="'secondPlayer'"
+            ></user-tile>
+            <user-tile
+                title="'Number of game'"
+                profile="'winner.png'"
+                border-color-code="'#EFF3FF'"
+                color-code="'#B1C4F9'"
+                placeholder-text="'Select number of games'"
+                payload="$ctrl.payload"
+                model-bind="'noOfGames'"
+                open-modal="$ctrl.openGamesModal()"
+            ></user-tile>
+            <user-tile
+                title="'Who starts'"
+                profile="'run.png'"
+                border-color-code="'#EFF3FF'"
+                color-code="'#B1C4F9'"
+                placeholder-text="'Select who starts first'"
+                payload="$ctrl.payload"
+                model-bind="'whoStarts'"
+                open-modal="$ctrl.openSelectTurnsModal()"
+            ></user-tile>
+        </div>
+        <div class="start-game-btn">
+            <md-button ng-click="$ctrl.loadGame()" class="md-raised md-primary custom-btn" ng-disabled="!$ctrl.enableStartBtn()">Start Game</md-button>
+        </div>
+    </div>
+</div>
+
+<selection-modal ng-if="$ctrl.showModal"
+    data="$ctrl.tempData"
+    model-binder="$ctrl.modelData"
+    close="$ctrl.closeModal()"
+    save="$ctrl.save()"
+></selection-modal>

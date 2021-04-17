@@ -1,14 +1,13 @@
 const path = require('path');
 const webpack = require('webpack');
-const HTMLWebPackPlugin = require('html-webpack-plugin');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-
 
 module.exports = {
     entry: {
         app: ['./app/index.js']
     },
-    devtool: 'inline-source-map',
+    devtool: "inline-source-map",
     output: {
         filename: '[name].[hash].js',
         path: path.resolve(__dirname, 'dist')
@@ -22,12 +21,16 @@ module.exports = {
             {
                 test: /\.json$/,
                 exclude: /node_modules/,
-                loader: 'file-loader'
+                loader: 'file-loader',
+                options: {
+                    name: 'api/[name].[ext]',
+                    context: ''
+                }
             },
             {
-                test: /\.css$/,
+                test: /\.scss$/,
                 exclude: /node_modules/,
-                loader: ['style-loader', 'css-loader']
+                loader: ['style-loader', 'css-loader', 'sass-loader']
             },
             {
                 test: /\.html$/,
@@ -36,16 +39,19 @@ module.exports = {
             },
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,
-                use: [
-                  'url-loader',
-                  'img-loader'
-                ]
-              }
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'images/'
+                    }
+                }]
+            }
         ]
     },
     plugins: [
         new CleanWebpackPlugin(['dist']),
-        new HTMLWebPackPlugin({
+        new HTMLWebpackPlugin({
             filename: '../dist/index.html',
             template: './app/index.html'
         })

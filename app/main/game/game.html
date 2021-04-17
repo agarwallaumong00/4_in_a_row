@@ -1,0 +1,92 @@
+
+<app-header go-back="$ctrl.goToOptions()"></app-header>
+
+<div class="main-container">
+    <div class="default-container">
+        <div class="game-container" ng-class="{'victory': $ctrl.isVictory}">
+            <table>
+                <tr ng-repeat="row in $ctrl.rows">
+                    <td ng-click="$ctrl.fillCell(row, column)" ng-repeat="column in $ctrl.columns">
+                        <div class="cell-cont">
+                            <div ng-if="$ctrl.matrix[row][column] === 1">
+                                <user-tile
+                                    show-only-icon="true"
+                                    profile="'avatar01.png'"
+                                    color-code="'#37AC5D'"
+                                    border-color-code="'#DCF6E4'"
+                                >
+                                </user-tile>
+                            </div>
+                            <div ng-if="$ctrl.matrix[row][column] === 2">
+                                <user-tile
+                                    show-only-icon="true"
+                                    profile="'avatar02.png'"
+                                    border-color-code="'#F6EFD5'"
+                                    color-code="'#F8D146'"
+                                ></user-tile>
+                            </div>
+                        </div>
+                        
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="game-panel">
+            <div class="game-panel--info">
+                <div class="game-panel--info--title">{{$ctrl.payload.noOfGames}} Games Tournament</div>
+                <div ng-if="!$ctrl.isVictory" class="game-panel--info--current-game">Playing Game {{$ctrl.currentGame}}</div>
+                <div ng-if="$ctrl.isVictory">
+                    <div class="congrats">Congratulation!</div>
+                    <div class="winner">
+                        <span ng-if="$ctrl.isNextGame"><b>{{$ctrl.winner}}</b>, you won Game {{$ctrl.currentGame}}</span>
+                        <span ng-if="!$ctrl.isNextGame"><b>{{$ctrl.winner}}</b>, you won tournament</span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <user-tile
+                    title="'Player 01'"
+                    profile="'avatar01.png'"
+                    color-code="'#37AC5D'"
+                    border-color-code="'#DCF6E4'"
+                    placeholder-text="'Enter player 01 name'"
+                    payload="$ctrl.payload"
+                    model-bind="'firstPlayer'"
+                    is-game-panel="true"
+                    is-active="$ctrl.getActivePlayer(1)"
+                    score="$ctrl.scoreCard[1].score"
+                ></user-tile>
+                <user-tile
+                    title="'Player 02'"
+                    profile="'avatar02.png'"
+                    border-color-code="'#F6EFD5'"
+                    color-code="'#F8D146'"
+                    placeholder-text="'Enter player 02 name'"
+                    payload="$ctrl.payload"
+                    model-bind="'secondPlayer'"
+                    is-game-panel="true"
+                    is-active="$ctrl.getActivePlayer(2)"
+                    score="$ctrl.scoreCard[2].score"
+                ></user-tile>
+            </div>
+            <div class="action-buttons">
+                <md-button
+                    ng-click="$ctrl.undoLastStep()"
+                    class="md-raised md-primary custom-btn undo"
+                    ng-if="!$ctrl.isVictory">
+                    Undo Step
+                </md-button>
+                <md-button
+                    ng-click="$ctrl.initialiseBoard()"
+                    class="md-raised md-primary custom-btn undo"
+                    ng-if="$ctrl.isVictory">
+                    <span ng-if="$ctrl.isNextGame">Next Game</span>
+                    <span ng-if="!$ctrl.isNextGame">Play Again</span>
+                </md-button>
+                <md-button ng-click="$ctrl.changeStateToHomePage()" class="md-raised md-primary custom-btn end-tour">
+                    End Tournament
+                </md-button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -4,7 +4,7 @@ require('angular');
 require('angular-material');
 require('@uirouter/angularjs');
 
-require('./index.css');
+require('./index.scss');
 require('./shared');
 require('./main');
 

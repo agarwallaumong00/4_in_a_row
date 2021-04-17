@@ -1,0 +1,44 @@
+@import '~angular-material/angular-material.scss';
+@import './main/main.scss';
+@import './shared/style.scss';
+
+@font-face {
+    font-family: 'inter';
+    src: url('https://fonts.google.com/specimen/Inter');
+}
+
+body {
+    box-sizing: border-box;
+}
+
+.default-container {
+    width: 700px;
+    height: 500px;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 10px #00000029;
+    border: 1px solid #F7F7F7;
+    border-radius: 30px;
+    box-sizing: border-box;
+}
+
+h2 {
+    margin: 0;
+}
+
+.main-layout {
+    width: 100vw;
+    height: 100vh;
+    background: #CED2DC;
+
+    .title {
+        padding: 20px;
+
+        h2 {
+            color: #3D4276;
+        }
+
+        span {
+            color: #949494;
+        }
+    }
+}

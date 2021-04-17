@@ -1,0 +1,14 @@
+<div class="selection-modal main-container">
+    <div class="default-container">
+        <div class="header">
+            <span>Number of game</span>
+        </div>
+        <md-radio-group ng-model="$ctrl.modelBinder">
+            <md-radio-button ng-repeat="item in $ctrl.data track by $index" value="{{item.key}}" class="md-primary">{{item.text}}</md-radio-button>
+        </md-radio-group>
+        <div class="btns">
+            <md-button ng-click="$ctrl.close()" class="md-raised md-primary custom-btn cancel-btn">Cancel</md-button>
+            <md-button ng-click="$ctrl.save()" class="md-raised md-primary custom-btn">Ok</md-button>
+        </div>
+    </div>
+</div>
